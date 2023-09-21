@@ -6,7 +6,7 @@ function TestForm() {
     const validate = values => {
 
         const errors = {};
-        
+
         if (!values.firstName) {
           errors.firstName = 'Required';
         } else if (values.firstName.length > 15) {
@@ -43,35 +43,41 @@ function TestForm() {
 
       return (
         <form onSubmit={formik.handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            id="firstName"
-            name="firstName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.firstName}
-          />
-    
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.lastName}
-          />
-    
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-    
-          <button type="submit">Submit</button>
-        </form>
+       <label htmlFor="firstName">First Name</label>
+       <input
+         id="firstName"
+         name="firstName"
+         type="text"
+         onChange={formik.handleChange}
+         onBlur={formik.handleBlur}
+         value={formik.values.firstName}
+       />
+       {formik.touched.firstName ? <div>{formik.errors.firstName}</div> : null}
+ 
+       <label htmlFor="lastName">Last Name</label>
+       <input
+         id="lastName"
+         name="lastName"
+         type="text"
+         onChange={formik.handleChange}
+         onBlur={formik.handleBlur}
+         value={formik.values.lastName}
+       />
+       {formik.touched.lastName ? <div>{formik.errors.lastName}</div> : null}
+ 
+       <label htmlFor="email">Email Address</label>
+       <input
+         id="email"
+         name="email"
+         type="email"
+         onChange={formik.handleChange}
+         onBlur={formik.handleBlur}
+         value={formik.values.email}
+       />
+       {formik.touched.email ? <div>{formik.errors.email}</div> : null}
+ 
+       <button type="submit">Submit</button>
+     </form>
       );
     };
 
