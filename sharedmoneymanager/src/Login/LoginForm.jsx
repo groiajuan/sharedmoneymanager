@@ -12,7 +12,7 @@ function LoginForm() {
               .required('The email is required'),  
       
       password: Yup.string()
-              .min(4, 'Must be 8 characters or less')
+              .min(4, 'Must be 4 characters or less')
               .required('Password is Required')
               
                                         });
@@ -24,7 +24,7 @@ function LoginForm() {
         },
         validationSchema: formValidations,
         onSubmit: values => {
-          if (values.email !== "a@a.com" || values.password !== "yes")
+          if (values.email !== "a@a.com" || values.password !== "yess")
           {
             alert(loginErrorMsg);
             return;
