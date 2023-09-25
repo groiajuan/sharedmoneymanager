@@ -8,6 +8,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import GenericErrorPage from './SharedUtilities/Errors/GenericErrorPage'
+import LoginForm from './Login/LoginForm';
+import Home from './Home/Home';
 
 const mainRouter = createBrowserRouter([
   {
@@ -16,9 +18,14 @@ const mainRouter = createBrowserRouter([
     errorElement: <GenericErrorPage/>,
     children: [
       {
-        path: "/contacts",
-        element: <h1>dqwwdq</h1>,
+        path: "/Home",
+        element: <Home/>,
       },
+      {
+        path: "/Login",
+        element: <LoginForm/>,
+      }
+      
     ],
 
   },
